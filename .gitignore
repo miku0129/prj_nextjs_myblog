@@ -39,4 +39,6 @@ next-env.d.ts
 bk_products/
 bk_users/
 tailwind.config.ts
+postcss.config.mjs
 server.js
+
