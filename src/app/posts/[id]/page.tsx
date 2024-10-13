@@ -1,14 +1,9 @@
-'use client'
-
 import React from "react";
+import styles from "./posts-page.module.css";
 
-export default function Post({
-  params,
-}: {
-  params: { slug: string }
-}){
-    console.log("params", params)
-  
+export default function Post({ params }: { params: { slug: string } }) {
+  console.log("params", params);
+
   const getPost = () => {
     const post = {
       id: "1",
@@ -33,31 +28,10 @@ export default function Post({
 
   return (
     <div>
-      <h2>{title}</h2>
-      <p>By {getPost().props?.author?.name || "Unknown author"}</p>
+      <div className={styles.post}>
+        <h2>{title}</h2>
+        <p>By {getPost().props?.author?.name || "Unknown author"}</p>
+      </div>
     </div>
-    //   <style jsx>{`
-    //     .page {
-    //       background: white;
-    //       padding: 2rem;
-    //     }
-
-    //     .actions {
-    //       margin-top: 2rem;
-    //     }
-
-    //     button {
-    //       background: #ececec;
-    //       border: 0;
-    //       border-radius: 0.125rem;
-    //       padding: 1rem 2rem;
-    //     }
-
-    //     button + button {
-    //       margin-left: 1rem;
-    //     }
-    //   `}</style>
-    // </Layout>
   );
-};
-
+}
