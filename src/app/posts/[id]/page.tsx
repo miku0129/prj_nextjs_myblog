@@ -1,28 +1,28 @@
 import React from "react";
+import prisma from "@/lib/prisma";
 import styles from "./posts-page.module.css";
 
-export default function Post({ params }: { params: { slug: string } }) {
-  console.log("params", params);
+export default async function Post({ params }: { params: { id: string } }) {
 
-  const getPost = () => {
-    const post = {
-      id: "1",
-      title: "Prisma is the perfect ORM for Next.js",
-      content:
-        "[Prisma](https://github.com/prisma/prisma) and Next.js go _great_ together!",
-      published: false,
-      author: {
-        name: "Nikolas Burk",
-        email: "burk@prisma.io",
+  const getPost = async () => {
+    const post = await prisma.post.findUnique({
+      where: {
+        id: String(params?.id),
       },
-    };
+      include: {
+        author: {
+          select: { name: true },
+        },
+      },
+    });
     return {
       props: post,
     };
   };
 
-  let title = getPost().props.title;
-  if (!getPost().props.published) {
+  const { props } = await getPost()
+  let title = props.title; 
+  if (!props.published) {
     title = `${title} (Draft)`;
   }
 
@@ -30,7 +30,7 @@ export default function Post({ params }: { params: { slug: string } }) {
     <div>
       <div className={styles.post}>
         <h2>{title}</h2>
-        <p>By {getPost().props?.author?.name || "Unknown author"}</p>
+        <p>By {props?.author?.name || "Unknown author"}</p>
       </div>
     </div>
   );
