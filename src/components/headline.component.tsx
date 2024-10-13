@@ -3,17 +3,6 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 
-export type PostProps = {
-  id: string;
-  title: string;
-  author: {
-    name: string;
-    email: string;
-  } | null;
-  content: string;
-  published: boolean;
-};
-
 const Headline: React.FC<{ post: PostProps }> = ({ post }) => {
   const router = useRouter();
   const authorName = post.author ? post.author.name : "Unknown author";
