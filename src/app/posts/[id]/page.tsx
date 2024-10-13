@@ -1,13 +1,13 @@
 'use client'
 
 import React from "react";
-import { useParams } from "next/navigation";
-import { PostProps } from "@/components/headline.component";
 
-const Post: React.FC<PostProps> = () => {
-  
-  const params = useParams<{ tag: string; item: string }>(); 
-  console.log("params", params)
+export default function Post({
+  params,
+}: {
+  params: { slug: string }
+}){
+    console.log("params", params)
   
   const getPost = () => {
     const post = {
@@ -61,4 +61,3 @@ const Post: React.FC<PostProps> = () => {
   );
 };
 
-export default Post;
