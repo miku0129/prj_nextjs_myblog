@@ -2,12 +2,13 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import HyperlinkBtn from "./hyperlink-button.component";
 
 const Draft: React.FC = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
-  const router = useRouter(); 
+  const router = useRouter();
 
   const submitData = async (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -44,9 +45,7 @@ const Draft: React.FC = () => {
             value={content}
           />
           <input disabled={!content || !title} type="submit" value="Create" />
-          <a className="back" href="#" onClick={() => router.push("/")}>
-            or Cancel
-          </a>
+          <HyperlinkBtn btntype="back" />
         </form>
       </div>
       <style jsx>{`
@@ -71,10 +70,6 @@ const Draft: React.FC = () => {
           background: #ececec;
           border: 0;
           padding: 1rem 2rem;
-        }
-
-        .back {
-          margin-left: 1rem;
         }
       `}</style>
     </div>
