@@ -25,6 +25,7 @@ export default async function Home() {
       <div className="page">
         <h1>Public Feed</h1>
         <HyperlinkBtn btntype="create"/>
+        <HyperlinkBtn btntype="drafts"/>
         <main>
           {props &&
             props!.posts.map((post:Post) => (

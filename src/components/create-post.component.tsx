@@ -19,8 +19,7 @@ const Draft: React.FC = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
-      //   await router.push("/drafts");
-      await router.push("/");
+      await router.push("/drafts");
     } catch (error) {
       console.error(error);
     }
@@ -46,7 +45,7 @@ const Draft: React.FC = () => {
             value={content}
           />
           <input disabled={!content || !title} type="submit" value="Create" />
-          <HyperlinkBtn btntype="back" />
+          <HyperlinkBtn btntype="home" />
         </form>
       </div>
       <style jsx>{`

@@ -1,9 +1,9 @@
-import Draft from "@/components/create-post.component";
+import CreatePost from "@/components/create-post.component";
 
 export default function Create() {
   return (
     <div>
-      <Draft />
+      <CreatePost />
     </div>
   );
 }

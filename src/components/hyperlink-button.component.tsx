@@ -11,11 +11,13 @@ type LinkTypes = {
 }
 const BTN_TYPES:BtnTypes = {
     create : 'create', 
-    back: 'back'
+    home: 'home',
+    drafts: 'drafts'
 }
 const LINK_TYPES:LinkTypes = {
     create : 'create', 
-    back: '/'
+    home: '/', 
+    drafts: 'drafts'
 }
 
 export default function HyperlinkBtn({btntype}: { btntype: string }) {
