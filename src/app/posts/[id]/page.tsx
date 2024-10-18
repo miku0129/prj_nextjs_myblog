@@ -3,7 +3,6 @@ import prisma from "@/lib/prisma";
 import styles from "./posts-page.module.css";
 
 export default async function Post({ params }: { params: { id: string } }) {
-
   const getPost = async () => {
     const post = await prisma.post.findUnique({
       where: {
@@ -20,10 +19,13 @@ export default async function Post({ params }: { params: { id: string } }) {
     };
   };
 
-  const { props } = await getPost()
-  let title = props.title; 
-  if (!props.published) {
-    title = `${title} (Draft)`;
+  const { props } = await getPost();
+  let title = "";
+  if (props) {
+    title = props.title;
+    if (!props.published) {
+      title = `${title} (Draft)`;
+    }
   }
 
   return (

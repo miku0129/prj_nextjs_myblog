@@ -3,7 +3,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 
-const Headline: React.FC<{ post: PostProps }> = ({ post }) => {
+const Headline: React.FC<{ post: Post }> = ({ post }) => {
   const router = useRouter();
   const authorName = post.author ? post.author.name : "Unknown author";
   return (

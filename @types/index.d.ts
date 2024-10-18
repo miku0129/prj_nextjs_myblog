@@ -1,11 +1,7 @@
-type PostProps = {
-    id: string;
-    title: string;
-    author: {
-      name: string;
-      email: string;
-    } | null;
-    content: string;
-    published: boolean;
-  };
-  
+type Post = { author: { name: string | null } | null } & {
+  id: string;
+  title: string;
+  content: string | null;
+  published: boolean;
+  authorId: string | null;
+};

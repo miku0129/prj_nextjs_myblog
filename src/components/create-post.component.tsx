@@ -14,12 +14,13 @@ const Draft: React.FC = () => {
     e.preventDefault();
     try {
       const body = { title, content };
-      await fetch("/api/post", {
+      await fetch("/api/posts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
-      await router.push("/drafts");
+      //   await router.push("/drafts");
+      await router.push("/");
     } catch (error) {
       console.error(error);
     }
@@ -70,6 +71,7 @@ const Draft: React.FC = () => {
           background: #ececec;
           border: 0;
           padding: 1rem 2rem;
+          cursor: pointer;
         }
       `}</style>
     </div>
