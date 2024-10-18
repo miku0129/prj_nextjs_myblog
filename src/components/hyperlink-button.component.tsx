@@ -6,12 +6,12 @@ import { useRouter } from "next/navigation";
 type BtnTypes = {
     [key:string]:string; 
 }
+type LinkTypes = {
+    [key:string]:string; 
+}
 const BTN_TYPES:BtnTypes = {
     create : 'create', 
     back: 'back'
-}
-type LinkTypes = {
-    [key:string]:string; 
 }
 const LINK_TYPES:LinkTypes = {
     create : 'create', 

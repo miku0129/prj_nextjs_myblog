@@ -1,5 +1,6 @@
 import React from "react";
 import prisma from "@/lib/prisma";
+import HyperlinkBtn from "@/components/hyperlink-button.component";
 import styles from "./posts-page.module.css";
 
 export default async function Post({ params }: { params: { id: string } }) {
@@ -32,7 +33,11 @@ export default async function Post({ params }: { params: { id: string } }) {
     <div>
       <div className={styles.post}>
         <h2>{title}</h2>
+        <text>
+          {props?.content}
+        </text>
         <p>By {props?.author?.name || "Unknown author"}</p>
+        <HyperlinkBtn btntype="back"/>
       </div>
     </div>
   );
