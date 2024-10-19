@@ -22,14 +22,14 @@ export default async function Home() {
 
   return (
     <div>
-      <div className="page">
-        <h1>Public Feed</h1>
+      <div className="base-layout">
         <Hyperlink btntype="create" />
         <Hyperlink btntype="drafts" />
+        <h1>Public Feed</h1>
         <main>
           {props &&
             props!.posts.map((post: Post) => (
-              <div key={post.id} className="post">
+              <div key={post.id}>
                 <ItemHeadline post={post} />
               </div>
             ))}

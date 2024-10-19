@@ -9,7 +9,7 @@ export default function BtnDelete({ params }: { params: { id: string } }) {
   async function deletePost(id: string): Promise<void> {
     await fetch(`/api/posts/${id}`, {
       method: "DELETE",
-      body: id
+      body: id,
     });
     await router.push("/");
   }

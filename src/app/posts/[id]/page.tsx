@@ -25,8 +25,10 @@ export default async function Post({ params }: { params: { id: string } }) {
   const { props } = await getPost();
 
   return (
-    <div>
-      <Hyperlink btntype="home" />
+    <div className="base-layout">
+      <div className="header-layout">
+        <Hyperlink btntype="home" />
+      </div>
       <div className={styles.post}>
         {props && <ItemPost post={props} />}
         <BtnDelete params={params} />

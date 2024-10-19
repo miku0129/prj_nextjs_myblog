@@ -22,7 +22,7 @@ export default async function Draft() {
   
   return (
     <div>
-      <Drafts props={props}/>
+        <Drafts props={props}/>
     </div>
   );
 }

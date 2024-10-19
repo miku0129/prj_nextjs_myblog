@@ -2,6 +2,7 @@ import React from "react";
 import prisma from "@/lib/prisma";
 import ItemPost from "@/components/item-post.component";
 import BtnPublish from "@/components/btn-publish.component";
+import Hyperlink from "@/components/hyperlink.component";
 
 export default async function Post({ params }: { params: { id: string } }) {
   const getPost = async () => {
@@ -23,9 +24,14 @@ export default async function Post({ params }: { params: { id: string } }) {
   const { props } = await getPost();
 
   return (
-    <div>
-      <div>{props && <ItemPost post={props} />}</div>
-      <BtnPublish params={params} />
+    <div className="base-layout">
+      <div className="header-layout">
+        <Hyperlink btntype="drafts" />
+      </div>
+      <div>
+        {props && <ItemPost post={props} />}
+        <BtnPublish params={params} />
+      </div>
     </div>
   );
 }

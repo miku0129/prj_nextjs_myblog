@@ -5,28 +5,19 @@ import Hyperlink from "./hyperlink.component";
 
 const Drafts: React.FC<{ props: { drafts: Post[] } }> = ({ props }) => {
   return (
-    <div>
-      <div className="page">
-        <h1>My Drafts</h1>
-        <Hyperlink btntype="home" />
-        <main>
-          {props.drafts.map((post) => (
-            <div key={post.id} className="post">
-              <ItemPost post={post} />
-            </div>
-          ))}
-        </main>
-      </div>
+    <div className="base-layout">
+      <Hyperlink btntype="home" />
+      <h1>My Drafts</h1>
+      <main>
+        {props.drafts.map((post) => (
+          <div key={post.id} className="drafts-mode">
+            <ItemPost post={post} />
+          </div>
+        ))}
+      </main>
       <style jsx>{`
-        .post {
-          background: gainsboro;
-          transition: box-shadow 0.1s ease-in;
-        }
-        .post:hover {
-          box-shadow: 1px 1px 3px #aaa;
-        }
-        .post + .post {
-          margin-top: 2rem;
+        .drafts-mode {
+          cursor: pointer;
         }
       `}</style>
     </div>

@@ -27,6 +27,7 @@ const Draft: React.FC = () => {
 
   return (
     <div>
+      <Hyperlink btntype="home" />
       <div className="create-page">
         <form onSubmit={submitData}>
           <h1>New Draft</h1>
@@ -45,13 +46,12 @@ const Draft: React.FC = () => {
             value={content}
           />
           <input disabled={!content || !title} type="submit" value="Create" />
-          <Hyperlink btntype="home" />
         </form>
       </div>
       <style jsx>{`
         .create-page {
           background: var(--geist-background);
-          padding: 3rem;
+          padding: 1rem;
           display: flex;
           justify-content: center;
           align-items: center;
