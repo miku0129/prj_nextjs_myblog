@@ -1,7 +1,7 @@
 import React from "react";
 import prisma from "@/lib/prisma";
 import ItemPost from "@/components/item-post.component";
-import styles from "./posts-page.module.css";
+import BtnPublish from "@/components/btn-publish.component";
 
 export default async function Post({ params }: { params: { id: string } }) {
   const getPost = async () => {
@@ -24,7 +24,8 @@ export default async function Post({ params }: { params: { id: string } }) {
 
   return (
     <div>
-      <div className={styles.post}>{props && <ItemPost post={props} />}</div>
+      <div>{props && <ItemPost post={props} />}</div>
+      <BtnPublish params={params} />
     </div>
   );
 }

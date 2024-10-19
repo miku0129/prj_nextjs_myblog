@@ -4,26 +4,26 @@ import React from "react";
 import { useRouter } from "next/navigation";
 
 type BtnTypes = {
-    [key:string]:string; 
-}
+  [key: string]: string;
+};
 type LinkTypes = {
-    [key:string]:string; 
-}
-const BTN_TYPES:BtnTypes = {
-    create : 'create', 
-    home: 'home',
-    drafts: 'drafts'
-}
-const LINK_TYPES:LinkTypes = {
-    create : 'create', 
-    home: '/', 
-    drafts: 'drafts'
-}
+  [key: string]: string;
+};
+const BTN_TYPES: BtnTypes = {
+  create: "create",
+  home: "home",
+  drafts: "drafts",
+};
+const LINK_TYPES: LinkTypes = {
+  create: "create",
+  home: "/",
+  drafts: "drafts",
+};
 
-export default function HyperlinkBtn({btntype}: { btntype: string }) {
+export default function BtnHyperlink({ btntype }: { btntype: string }) {
   const router = useRouter();
-  const btn_type= btntype; 
-  
+  const btn_type = btntype;
+
   return (
     <div>
       <a
