@@ -1,14 +1,14 @@
 "use client";
 import React from "react";
 import ItemPost from "./item-post.component";
-import BtnHyperlink from "./btn-hyperlink.component";
+import Hyperlink from "./hyperlink.component";
 
 const Drafts: React.FC<{ props: { drafts: Post[] } }> = ({ props }) => {
   return (
     <div>
       <div className="page">
         <h1>My Drafts</h1>
-        <BtnHyperlink btntype="home" />
+        <Hyperlink btntype="home" />
         <main>
           {props.drafts.map((post) => (
             <div key={post.id} className="post">

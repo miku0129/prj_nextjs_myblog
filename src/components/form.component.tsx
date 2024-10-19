@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import BtnHyperlink from "./btn-hyperlink.component";
+import Hyperlink from "./hyperlink.component";
 
 const Draft: React.FC = () => {
   const [title, setTitle] = useState("");
@@ -45,7 +45,7 @@ const Draft: React.FC = () => {
             value={content}
           />
           <input disabled={!content || !title} type="submit" value="Create" />
-          <BtnHyperlink btntype="home" />
+          <Hyperlink btntype="home" />
         </form>
       </div>
       <style jsx>{`

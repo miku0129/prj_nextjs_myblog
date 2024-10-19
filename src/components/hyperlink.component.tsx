@@ -20,7 +20,7 @@ const LINK_TYPES: LinkTypes = {
   drafts: "drafts",
 };
 
-export default function BtnHyperlink({ btntype }: { btntype: string }) {
+export default function Hyperlink({ btntype }: { btntype: string }) {
   const router = useRouter();
   const btn_type = btntype;
 

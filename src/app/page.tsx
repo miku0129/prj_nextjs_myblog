@@ -1,7 +1,7 @@
 import React from "react";
 import prisma from "../lib/prisma";
 import ItemHeadline from "@/components/item-headline.component";
-import BtnHyperlink from "@/components/btn-hyperlink.component";
+import Hyperlink from "@/components/hyperlink.component";
 
 export default async function Home() {
   const getPosts = async () => {
@@ -24,8 +24,8 @@ export default async function Home() {
     <div>
       <div className="page">
         <h1>Public Feed</h1>
-        <BtnHyperlink btntype="create" />
-        <BtnHyperlink btntype="drafts" />
+        <Hyperlink btntype="create" />
+        <Hyperlink btntype="drafts" />
         <main>
           {props &&
             props!.posts.map((post: Post) => (
