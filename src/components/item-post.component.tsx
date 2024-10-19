@@ -2,7 +2,6 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
-import BtnHyperlink from "./btn-hyperlink.component";
 
 const ItemPost: React.FC<{ post: Post }> = ({ post }) => {
   const router = useRouter();
@@ -14,7 +13,6 @@ const ItemPost: React.FC<{ post: Post }> = ({ post }) => {
         <h2>{title}</h2>
         <p>{post.content}</p>
         <p>By {authorName}</p>
-        <BtnHyperlink btntype="home" />
       </div>
     )) ||
     (!post.published && (
