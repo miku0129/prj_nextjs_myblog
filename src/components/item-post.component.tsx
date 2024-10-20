@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
+import styles from "./../app/styling/css-modules/styles.module.css"
 
 const ItemPost: React.FC<{ post: Post }> = ({ post }) => {
   const router = useRouter();
@@ -10,7 +11,7 @@ const ItemPost: React.FC<{ post: Post }> = ({ post }) => {
   return (
     <div>
       {(post.published && (
-        <div className="item-layout">
+        <div className={styles.item}>
           <h2>{title}</h2>
           <p>{post.content}</p>
           <p>By {authorName}</p>
@@ -19,7 +20,7 @@ const ItemPost: React.FC<{ post: Post }> = ({ post }) => {
         (!post.published && (
           <div
             onClick={() => router.push(`/drafts/${post.id}`)}
-            className="draft-layout"
+            className={styles.draft}
           >
             <h2>{title}</h2>
             <p>{post.content}</p>

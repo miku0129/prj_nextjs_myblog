@@ -3,7 +3,7 @@ import prisma from "@/lib/prisma";
 import ItemPost from "@/components/item-post.component";
 import BtnDelete from "@/components/btn-delete.component";
 import Hyperlink from "@/components/hyperlink.component";
-import styles from "./posts-page.module.css";
+import styles from "./../../styling/css-modules/styles.module.css";
 
 export default async function Post({ params }: { params: { id: string } }) {
   const getPost = async () => {
@@ -25,10 +25,8 @@ export default async function Post({ params }: { params: { id: string } }) {
   const { props } = await getPost();
 
   return (
-    <div className="base-layout">
-      <div className="header-layout">
+    <div className={styles.base}>
         <Hyperlink btntype="home" />
-      </div>
       <div className={styles.post}>
         {props && <ItemPost post={props} />}
         <BtnDelete params={params} />

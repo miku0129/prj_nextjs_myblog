@@ -8,3 +8,12 @@ export const CustomStyledBtn = styled.button`
   border: 0;
   padding: 1rem 2rem;
 `;
+
+export const CustomStyledHeadline = styled.div`
+  padding: 1rem;
+  background: gainsboro;
+  &:hover {
+    background: white;
+    cursor: pointer;
+  }
+`;

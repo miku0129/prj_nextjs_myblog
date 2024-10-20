@@ -3,6 +3,7 @@ import prisma from "@/lib/prisma";
 import ItemPost from "@/components/item-post.component";
 import BtnPublish from "@/components/btn-publish.component";
 import Hyperlink from "@/components/hyperlink.component";
+import styles from "./../../styling/css-modules/styles.module.css"
 
 export default async function Post({ params }: { params: { id: string } }) {
   const getPost = async () => {
@@ -24,8 +25,8 @@ export default async function Post({ params }: { params: { id: string } }) {
   const { props } = await getPost();
 
   return (
-    <div className="base-layout">
-      <div className="header-layout">
+    <div className={styles.base}>
+      <div className={styles.header}>
         <Hyperlink btntype="drafts" />
       </div>
       <div>

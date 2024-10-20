@@ -1,0 +1,21 @@
+.base {
+  padding: 2rem 2rem;
+}
+
+.item {
+  padding: 1rem;
+  background: white;
+}
+
+.draft {
+  padding: 1rem;
+  background: white;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.post {
+    margin-top: 30px; 
+}
