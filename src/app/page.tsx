@@ -2,7 +2,9 @@ import React from "react";
 import prisma from "../lib/prisma";
 import ItemHeadline from "@/components/item-headline.component";
 import Hyperlink from "@/components/hyperlink.component";
-import styles from "./styling/css-modules/styles.module.css";
+import { CustomStyleHeaderItemLayout } from "./../styling/styled-components/page";
+import styles from "./../styling/css-modules/styles.module.css";
+import { CustomStylelistLayout } from "./../styling/styled-components/page";
 
 export default async function Home() {
   const getPosts = async () => {
@@ -24,16 +26,20 @@ export default async function Home() {
   return (
     <div>
       <div className={styles.base}>
-        <Hyperlink btntype="create" />
-        <Hyperlink btntype="drafts" />
+        <CustomStyleHeaderItemLayout>
+          <Hyperlink btntype="create" />
+          <Hyperlink btntype="drafts" />
+        </CustomStyleHeaderItemLayout>
         <h1>Public Feed</h1>
         <main>
-          {props &&
-            props!.posts.map((post: Post) => (
-              <div key={post.id}>
-                <ItemHeadline post={post} />
-              </div>
-            ))}
+          <CustomStylelistLayout>
+            {props &&
+              props!.posts.map((post: Post) => (
+                <div key={post.id}>
+                  <ItemHeadline post={post} />
+                </div>
+              ))}
+          </CustomStylelistLayout>
         </main>
       </div>
     </div>

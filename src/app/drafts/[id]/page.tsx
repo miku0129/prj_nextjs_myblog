@@ -2,8 +2,9 @@ import React from "react";
 import prisma from "@/lib/prisma";
 import ItemPost from "@/components/item-post.component";
 import BtnPublish from "@/components/btn-publish.component";
+import BtnDelete from "@/components/btn-delete.component";
 import Hyperlink from "@/components/hyperlink.component";
-import styles from "./../../styling/css-modules/styles.module.css"
+import styles from "./../../../styling/css-modules/styles.module.css"
 
 export default async function Post({ params }: { params: { id: string } }) {
   const getPost = async () => {
@@ -32,6 +33,7 @@ export default async function Post({ params }: { params: { id: string } }) {
       <div>
         {props && <ItemPost post={props} />}
         <BtnPublish params={params} />
+        <BtnDelete params={params}/>
       </div>
     </div>
   );

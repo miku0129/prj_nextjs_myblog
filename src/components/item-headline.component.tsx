@@ -2,8 +2,7 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
-import { CustomStyledHeadline } from "@/app/styling/styled-components/page";
-
+import { CustomStyledHeadline } from "@/styling/styled-components/page";
 const ItemHeadline: React.FC<{ post: Post }> = ({ post }) => {
   const router = useRouter();
   const authorName = post.author ? post.author.name : "Unknown author";
