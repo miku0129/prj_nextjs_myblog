@@ -24,10 +24,6 @@ textarea {
 
 button {
   cursor: pointer;
-  margin-top: 10px;
-  background: #ececec;
-  border: 0;
-  padding: 1rem 2rem;
 }
 
 .base-layout {

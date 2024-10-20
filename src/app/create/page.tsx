@@ -1,9 +1,9 @@
-import Form from "@/components/form.component";
+import Draft from "@/components/draft.component";
 
 export default function Create() {
   return (
     <div className="base-layout">
-      <Form />
+      <Draft />
     </div>
   );
 }

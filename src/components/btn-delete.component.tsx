@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
+import { CustomStyledBtn } from "@/app/styling/styled-components/page";
 
 export default function BtnDelete({ params }: { params: { id: string } }) {
   const router = useRouter();
@@ -16,7 +17,9 @@ export default function BtnDelete({ params }: { params: { id: string } }) {
 
   return (
     <div>
-      <button onClick={() => deletePost(params.id)}>Delete</button>
+      <CustomStyledBtn onClick={() => deletePost(params.id)}>
+        Delete
+      </CustomStyledBtn>
     </div>
   );
 }
