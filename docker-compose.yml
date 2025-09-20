@@ -16,6 +16,7 @@ services:
       - prj_nextjs_graphql_todolist_node_modules:/app/node_modules
     networks: 
       - nextjs_graphql_todolist-net
+
   db:
     image: postgres:16
     environment:
