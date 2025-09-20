@@ -7,21 +7,14 @@ import styles from "./../styling/css-modules/styles.module.css";
 import { CustomStylelistLayout } from "./../styling/styled-components/page";
 
 export default async function Home() {
-  const getPosts = async () => {
-    const posts = await prisma.post.findMany({
-      where: { published: true },
-      include: {
-        author: {
-          select: { name: true },
-        },
+  const posts = await prisma.post.findMany({
+    where: { published: true },
+    include: {
+      author: {
+        select: { name: true },
       },
-    });
-    return {
-      props: { posts },
-      revalidate: 10,
-    };
-  };
-  const { props } = await getPosts();
+    },
+  });
 
   return (
     <div>
@@ -33,8 +26,8 @@ export default async function Home() {
         <h1>Public Feed</h1>
         <main>
           <CustomStylelistLayout>
-            {props &&
-              props!.posts.map((post: Post) => (
+            {posts &&
+              posts.map((post: Post) => (
                 <div key={post.id}>
                   <ItemHeadline post={post} />
                 </div>
