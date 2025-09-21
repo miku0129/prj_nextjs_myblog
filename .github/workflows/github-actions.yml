@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
         
       - name: リクエスト接続確認
-      - run: echo "From payload, ${{ github.event.client_payload.message}}."
+        run: echo "From payload, ${{ github.event.client_payload.message}}."
       
       - name: Issue の作成
         run: |
