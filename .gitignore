@@ -42,4 +42,7 @@ tailwind.config.ts
 postcss.config.mjs
 server.js
 note.txt
-
+.env.docker
+.env.docker.only.db
+Dockerfile.dev
+Dockerfile.prod

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
-import styles from "./../app/styling/css-modules/styles.module.css"
+import styles from "./../styling/css-modules/styles.module.css"
 
 const ItemPost: React.FC<{ post: Post }> = ({ post }) => {
   const router = useRouter();

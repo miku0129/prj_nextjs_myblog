@@ -2,27 +2,26 @@ import React from "react";
 import prisma from "@/lib/prisma";
 import ItemPost from "@/components/item-post.component";
 import BtnPublish from "@/components/btn-publish.component";
+import BtnDelete from "@/components/btn-delete.component";
 import Hyperlink from "@/components/hyperlink.component";
-import styles from "./../../styling/css-modules/styles.module.css"
+import styles from "./../../../styling/css-modules/styles.module.css";
 
-export default async function Post({ params }: { params: { id: string } }) {
-  const getPost = async () => {
-    const post = await prisma.post.findUnique({
-      where: {
-        id: String(params?.id),
+export default async function Post({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const post = await prisma.post.findUnique({
+    where: {
+      id: id,
+    },
+    include: {
+      author: {
+        select: { name: true },
       },
-      include: {
-        author: {
-          select: { name: true },
-        },
-      },
-    });
-    return {
-      props: post,
-    };
-  };
-
-  const { props } = await getPost();
+    },
+  });
 
   return (
     <div className={styles.base}>
@@ -30,8 +29,10 @@ export default async function Post({ params }: { params: { id: string } }) {
         <Hyperlink btntype="drafts" />
       </div>
       <div>
-        {props && <ItemPost post={props} />}
-        <BtnPublish params={params} />
+        {/* {props && <ItemPost post={props} />} */}
+        {post && <ItemPost post={post} />}
+        <BtnPublish id={id} />
+        <BtnDelete id={id} />
       </div>
     </div>
   );

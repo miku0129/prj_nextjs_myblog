@@ -11,9 +11,20 @@ export const CustomStyledBtn = styled.button`
 
 export const CustomStyledHeadline = styled.div`
   padding: 1rem;
-  background: gainsboro;
+  background: white;
   &:hover {
-    background: white;
+    background: aliceblue;
     cursor: pointer;
   }
+`;
+
+export const CustomStylelistLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
+export const CustomStyleHeaderItemLayout = styled.div`
+  display: flex;
+  gap: 1rem;
 `;

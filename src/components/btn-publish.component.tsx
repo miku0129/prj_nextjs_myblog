@@ -2,9 +2,9 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
-import { CustomStyledBtn } from "@/app/styling/styled-components/page";
+import { CustomStyledBtn } from "@/styling/styled-components/page";
 
-export default function BtnPublish({ params }: { params: { id: string } }) {
+export default function BtnPublish(params: { id: string }) {
   const router = useRouter();
 
   async function publishPost(id: string): Promise<void> {
