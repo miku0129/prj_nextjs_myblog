@@ -14,18 +14,20 @@ jobs:
     steps:
       - name: リポジトリのチェックアウト
         uses: actions/checkout@v4
-
+        
+      - name: リクエスト接続確認
+      - run: echo "From payload, ${{ github.event.client_payload.message}}."
+      
       - name: Issue の作成
         run: |
-          cat << 'EOF' | gh issue create --label "bug" --title "Automate testing" --body-file -
-          ## 今日やること
-          - [ ] 今日やることを書く
+          cat << 'EOF' | gh issue create --label "bug" --title "Automate creating issue" --body-file -
+          ## Automate creating issue
 
-          ## 学んだこと
-          - 
+          ## Sample topic 1. 
 
-          ## ネクストアクション
+          ## Sample topic 2. 
           - 
           EOF
         env:
           GH_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+      
