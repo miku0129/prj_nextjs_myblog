@@ -28,4 +28,4 @@ jobs:
           - 
           EOF
         env:
-          GH_TOKEN: ${{ secret.MY_GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
