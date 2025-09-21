@@ -17,7 +17,7 @@ jobs:
 
       - name: Issue の作成
         run: |
-          cat << 'EOF' | gh issue create --label "test" --title "Automate testing" --body-file -
+          cat << 'EOF' | gh issue create --label "bug" --title "Automate testing" --body-file -
           ## 今日やること
           - [ ] 今日やることを書く
 
