@@ -17,7 +17,7 @@ jobs:
 
       - name: Issue の作成
         run: |
-          cat << 'EOF' | gh issue create --label "Automation test" --body-file -
+          cat << 'EOF' | gh issue create --label "test" --title "Automate testing" --body-file -
           ## 今日やること
           - [ ] 今日やることを書く
 
@@ -28,4 +28,4 @@ jobs:
           - 
           EOF
         env:
-          GH_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secret.MY_GITHUB_TOKEN }}
