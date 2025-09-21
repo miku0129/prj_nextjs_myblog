@@ -1,20 +1,31 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+name: Automate creating a Github Issue 
+run-name: ${{ github.actor }} is testing out GitHub Actions
+permissions:
+  issues: write  # Issue作成のみの権限を付与
+  contents: read # リポジトリの読み取り権限
 on: 
   repository_dispatch:
     types: ["error_detect"]
+
 jobs:
-  Explore-GitHub-Actions:
+  create-issue:
     runs-on: ubuntu-latest
+
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - name: Check out repository code
-        uses: actions/checkout@v5
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
+      - name: リポジトリのチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Issue の作成
         run: |
-          ls ${{ github.workspace }}
-      - run: echo "From payload, ${{ github.event.client_payload.message }}."
+          cat << 'EOF' | gh issue create --label "Automation test" --body-file -
+          ## 今日やること
+          - [ ] 今日やることを書く
+
+          ## 学んだこと
+          - 
+
+          ## ネクストアクション
+          - 
+          EOF
+        env:
+          GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
