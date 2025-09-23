@@ -20,8 +20,8 @@ jobs:
       
       - name: Issue の作成
         run: |
-          cat << 'EOF' | gh issue create --label "bug" --title "Automate creating issue" --body-file -
-          ## Automate creating issue
+          cat << 'EOF' | gh issue create --label "bug" --title "Automate issue creation" --body-file -
+          ## Automate issue creation
 
           ## Sample topic 1. 
 
