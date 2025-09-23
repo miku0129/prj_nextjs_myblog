@@ -10,4 +10,4 @@ COPY . .
 
 RUN npm install
 
-CMD ["npm", "run", "dev"]
+ENTRYPOINT ["./entrypoint.sh"]
