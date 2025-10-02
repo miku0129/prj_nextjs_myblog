@@ -10,6 +10,7 @@ export async function POST(req: NextRequest) {
   const body = await req.json();
   const { title, content } = body;
 
+  //This code never runs because of FLAG=false
   if (FLAG) {
     const res = await prisma.post.create({
       data: {
@@ -21,8 +22,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(res);
   }
 
-  //ここにわざとエラーを出す
-  //エラー時にgithub actionsが動くよう仕掛ける
+  //This code causes an error then creates an issue in GitHub
   const errorResponse = await fetch(
     `https://api.github.com/repos/${process.env.GITHUB_OWNER}/${process.env.GITHUB_REPO}/dispatches`,
     {
@@ -41,5 +41,6 @@ export async function POST(req: NextRequest) {
       }),
     }
   );
-  console.log("error response", errorResponse);
+  console.log("error:", errorResponse);
+  return; 
 }
